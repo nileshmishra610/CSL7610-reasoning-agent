@@ -59,10 +59,17 @@ A router sends each problem to one of three engines. No generative model is used
   3. Causal statements and counterfactual questions -> structural causal model
      (abduction, intervention, forward propagation)
 
-Results on the public data (from the submitted notebook)
---------------------------------------------------------
-RuleTaker test split (151,911)       99.97 %
-RuleTaker given as logic (151,911)   99.97 %
-FOLIO validation (204)               98.04 %
-CounterBench held-out half (600)     94.17 %
-All datasets (153,315 queries)       99.93 %,  total inference time 15.5 s
+Results on the public data (Table 1 of report.pdf)
+--------------------------------------------------
+Dataset                              Accuracy    Time per sample
+RuleTaker test split (151,911)       99.97 %     0.075 ms
+FOLIO validation (204)               98.04 %     19.3 ms
+CounterBench held-out half (600)     94.17 %     0.21 ms
+
+RuleTaker given as logic (151,911)   99.97 %     0.72 ms   (check of the logic-input route)
+
+Overall (average over the three datasets)
+    Overall accuracy        (99.97 + 98.04 + 94.17) / 3        = 97.39 %
+    Overall inference time  (0.075 + 19.3 + 0.21) ms / 3       = 0.00653 s per sample
+
+Pooled over all 153,315 queries: 99.93 % accuracy, 15.5 s total inference time.
